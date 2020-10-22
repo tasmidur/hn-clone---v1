@@ -111,7 +111,7 @@ export default {
             this.polling = setInterval(() => {
                 this.loadItems(this.page)
 
-            }, 1000 * 60); //15 min
+            }, 1000 * 60*15); //15 min
         }
     }
 
