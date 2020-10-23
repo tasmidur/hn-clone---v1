@@ -1,6 +1,7 @@
 import {
   fetchIdsByType,
   fetchItems,
+  fetchUser
 } from '../api';
 
 export default {
@@ -16,6 +17,7 @@ export default {
     })
   }, 
   FETCH_ITEMS: ({ commit, state }, { ids }) => {
+    
     if (ids.length) {
       return fetchItems(ids)
       .then(items => commit('SET_ITEMS', { items }))
@@ -23,4 +25,8 @@ export default {
       return Promise.resolve()
     }
   },
+  FETCH_USER: ({ commit }, [id ]) => {
+    return fetchUser(id).then(user => commit('SET_USER', { id, user }))
+  }
+
 }

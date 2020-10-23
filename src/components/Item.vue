@@ -63,7 +63,13 @@ export default {
     padding: 20px 30px 20px 80px;
     border-bottom: 1px solid #eee;
     position: relative;
-    line-height: 20px
+    line-height: 20px;
+    color: black;
+}
+
+.news-item .title {
+    color: black;
+    font-weight: bold;
 }
 
 .score {

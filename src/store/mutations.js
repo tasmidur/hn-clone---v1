@@ -10,15 +10,16 @@ export default {
     SET_ITEMS: (state, { items }) => {
       items.forEach(item => {
         if (item) {
-          Vue.set(state.stories,item.id,item);
+          Vue.set(state.items,item.id,item);
+
         }
       })
     },
     SET_USER: (state, { id, user }) => {
-      
       Vue.set(state.users, id, user || false)
-      console.log("after-mut",state.user);
+      
     }
+
   }; 
 
   

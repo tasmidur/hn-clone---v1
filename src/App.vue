@@ -19,7 +19,10 @@
     </header>
     <transition name="fade" mode="out-in">
         <router-view class="view"></router-view>
+
     </transition>
+    <vue-progress-bar></vue-progress-bar>
+
 </div>
 </template>
 
@@ -31,9 +34,9 @@ export default {
 
 <style scoped>
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: sans-serif;
     font-size: 15px;
-    background-color: lighten(#eceef1, 30%);
+    background: lighten(#56595c, 30%);
     margin: 0;
     padding-top: 55px;
     color: #34495e;

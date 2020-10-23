@@ -16,6 +16,20 @@ export function fetchItem (id) {
   export function fetchItems (ids) {
     return Promise.all(ids.map(id => fetchItem(id)))
   }
+  export function fetchUser(id){
+    return fetch(`user/${id}.json`);
+  }
+
+// recursively fetch all descendent comments
+export function fetchComments(store, item) {
+  if (item && item.kids) {
+      return store.dispatch('FETCH_ITEMS', {
+          ids: item.kids
+      }).then(() => Promise.all(item.kids.map(id => {
+          return fetchComments(store, store.state.items[id])
+      })))
+  }
+}
 
 export function watchList(type,cb){
   cb(fetch(`${type}stories.json`))

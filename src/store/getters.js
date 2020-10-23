@@ -11,7 +11,7 @@ export default {
        
     },
     getactiveItems (state, getters) { 
-        return getters.getActiveItemIds.map(id => state.stories[id]).filter(_ => _);
+        return getters.getActiveItemIds.map(id => state.items[id]).filter(_ => _);
       }
     
 }

@@ -77,7 +77,7 @@ export default {
     },
     beforeDestroy() {
         clearInterval(this.polling);
-
+        this.watchList();
     },
 
     watch: {
@@ -91,7 +91,7 @@ export default {
     },
     methods: {
         loadItems(to = this.page, from = -1) {
-
+            this.$Progress.start()
             this.$store.dispatch('FETCH_ITEM', {
                 type: this.type
             }).then(() => {
@@ -104,14 +104,14 @@ export default {
                     to > from ? 'slide-left' : 'slide-right'
                 this.displayedPage = to
                 this.displayedItems = this.$store.getters.getactiveItems
-
+                this.$Progress.finish();
             })
         },
         pollData: function () {
             this.polling = setInterval(() => {
                 this.loadItems(this.page)
 
-            }, 1000 * 60*15); //15 min
+            }, 1000 * 60 * 15); //15 minutes
         }
     }
 
@@ -123,14 +123,15 @@ export default {
     padding-top: 45px;
 }
 
-.news-list-nav {
+.news-view .news-list-nav {
     background-color: #fff;
     border-radius: 2px;
 }
 
-.news-list {
+.news-view .news-list {
     background-color: #fff;
     border-radius: 2px;
+    margin-top: 50px;
 }
 
 .news-list-nav {

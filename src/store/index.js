@@ -10,7 +10,8 @@ export default new Vuex.Store({
   state: {
     activeType:null,
     itemsPerPage:20,
-    stories:{},
+    items:{}, //all items
+    users:{},
     lists: {
       top: [],
       new: [],
